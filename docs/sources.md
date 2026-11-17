@@ -69,6 +69,25 @@ them.
 - **security-prompts — mert-erkoc** · github.com/mert-erkoc/security-prompts.
   Borrowed: validate before reporting.
 
+## Writeups studied (patterns, escalation ladders, class distribution)
+
+- **alexbieber/Bug_Bounty_writeups** · github.com/alexbieber/Bug_Bounty_writeups
+  — a 641-link index organized by class. Source of the class-distribution table
+  in `docs/writeup-study.md` and the escalation ladders in
+  `docs/escalation-ladders.md` (self-XSS→stored→ATO, upload/traversal→RCE,
+  SSRF→metadata→creds→RCE, open-redirect→OAuth→ATO, CORS→ATO, race→money,
+  subdomain-takeover escalations).
+- **devanshbatham/Awesome-Bugbounty-Writeups**, **pentester.land/writeups** —
+  further curated writeup indexes to mine with the 10-question loop.
+- **Bugcrowd "chaining gadgets" research** and **DEF CON 32 "Reflections on a
+  Decade in Bug Bounties"** — the gadget mindset: save low-impact bugs and chain
+  them rather than settling for Informative.
+- **Intigriti "bug bounty mistakes"** and community "why hunters fail" writeups —
+  impact ≠ bug type; manual over tool-spraying; read scope and disclosed reports
+  first; one class across the whole app.
+- A study of ~10,000 disclosed HackerOne reports — confirms XSS/IDOR/CSRF recur;
+  patterns are learnable in bulk.
+
 ## Payloads, references, severity
 
 - **PayloadsAllTheThings — swisskyrepo** · github.com/swisskyrepo/

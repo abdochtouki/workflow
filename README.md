@@ -57,9 +57,11 @@ full recon — see `wordlists/README.md` and `docs/phases/3-recon.md`.
 | ---- | ---- |
 | `docs/WORKFLOW.md` | The full method: the 7 phases + the master validation gate. |
 | `docs/phases/` | One file per phase, with the concrete steps. |
+| `docs/escalation-ladders.md` | The gadget-chaining model — how low primitives become critical impact. |
+| `docs/writeup-study.md` | How to mine public writeups into reusable detection rules. |
 | `docs/sources.md` | Every idea traced to its source. |
 | `rules/` | Hunting rules, the never-submit list, scope rules. |
-| `playbooks/` | Per-class test recipes (IDOR, access control, business logic, SSRF, auth, race). |
+| `playbooks/` | Per-class recipes: IDOR, access control, business logic, SSRF, auth, race, XSS, CSRF, CORS, subdomain takeover, file-upload→RCE, SQLi. |
 | `templates/` | `finding.md`, `report.md` — the formats the scripts lint. |
 | `programs/_template/` | Copy this per program (`bin/new-program.sh`). |
 | `bin/` | `scope-gate` · `recon` · `verify` · `report-lint` · `new-program`. |

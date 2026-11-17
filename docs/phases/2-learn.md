@@ -11,6 +11,17 @@ real time here before touching the target with a tool.
   which they downrate, what they've hardened.
 - Note the endpoints and patterns that produced bugs; the sibling of a fixed
   bug is often still open.
+- Run each report through the 10-question template in `docs/writeup-study.md`
+  and keep the one-line detection rule. Reading reports without extracting
+  rules is just reading.
+
+## Study the class, not just the program
+
+Before you hunt a class on this target, read 10–20 public writeups of that
+class back to back — patterns only jump out in bulk. Aim where the crowd isn't:
+public writeups are ~46% XSS and heavy on RCE/CSRF/SQLi, while **IDOR, access
+control, and business logic are under-documented — meaning less crowded and
+fewer duplicates.** Full breakdown and the study loop: `docs/writeup-study.md`.
 
 ## Map the tech stack
 

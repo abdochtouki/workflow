@@ -10,6 +10,12 @@ Any feature where the server fetches a URL you influence: webhooks, URL
 previews/unfurls, image/file import by URL, PDF/HTML renderers, "import from
 URL", integrations, avatar-by-URL, SSO metadata URLs, document converters.
 
+**Most common entry points in the writeup corpus:** image resizers/processors,
+PDF generators, webhooks, `ffmpeg`/media processing, and "upload/import from
+URL". Media and document processors are the highest-signal place to start.
+Techniques that recur: DNS rebinding, `gopher://` to reach non-HTTP services,
+and open-redirect-assisted filter bypass (see `docs/escalation-ladders.md`).
+
 ## The exact test
 
 1. Point the parameter at a collaborator you control (self-hosted

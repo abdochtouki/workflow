@@ -31,6 +31,15 @@ Before submitting anything on this list, answer: *what can an attacker actually
 do, right now, and what's the proof?* If the answer is "nothing yet, but it
 could help with…", it is a note in your own files, not a report.
 
+## But don't discard them — they're gadgets
+
+Everything on this list is a **gadget**: worthless filed alone, valuable as a
+rung in a chain. The hunters who earn take these exact primitives and escalate
+them (open redirect → OAuth token theft → ATO; self-XSS → stored → ATO;
+missing-CSRF → email change → ATO). So the rule is three-way, not two-way:
+**don't file it alone, don't throw it away — save it and climb.** See
+`docs/escalation-ladders.md`.
+
 ## When they DO count
 
 Chained, with proof:

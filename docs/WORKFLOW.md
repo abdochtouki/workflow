@@ -41,10 +41,13 @@ A scanner hit is a **lead**, not a bug. → `docs/phases/3-recon.md`
 
 ### 4. Hunt — manual, by class, deep not wide
 Take the hotlist into manual testing. Pick one or two high-yield classes and go
-deep (IDOR/access control + business logic is the best pair). Use two test
-accounts and diff (A vs B). Apply the **sibling rule** and the **A→B signal**.
-Time-box: no progress in 5 minutes, move on; 3 hours per area, then rotate.
-→ `docs/phases/4-hunt.md` and `playbooks/`
+deep (IDOR/access control + business logic is the best pair), sweeping one class
+across the whole app. Use two test accounts and diff (A vs B). Apply the
+**sibling rule** and the **A→B signal**. Collect low-impact primitives as
+**gadgets** and climb the **escalation ladders** to real impact — the chain is
+what pays, not the primitive. Time-box: no progress in 5 minutes, move on; 3
+hours per area, then rotate. → `docs/phases/4-hunt.md`, `playbooks/`,
+`docs/escalation-ladders.md`
 
 ### 5. Verify — the independent gate
 Before you write anything, run `bin/verify.sh`. Its only job is to destroy false

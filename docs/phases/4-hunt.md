@@ -14,6 +14,13 @@ and your top flows from phase 2 into manual testing.
   exactly what caused a different response.
 - **Pick one or two classes and go deep.** Don't spread across twelve. IDOR /
   access control + business logic is the best-paying, least-automatable pair.
+- **One class across the whole app, not one page across all classes.** Sweep
+  the entire application for a single class at a time — jumping between classes
+  randomly misses the patterns that reveal systemic issues.
+- **Collect gadgets; don't settle for Informative.** A low-impact primitive
+  (open redirect, self-XSS, HTML injection, CORS, missing-CSRF, an SSRF entry
+  point) is not a report and not trash — it's a rung. Note it and climb. See
+  `docs/escalation-ladders.md`.
 
 ## The two multipliers
 
@@ -35,8 +42,20 @@ and your top flows from phase 2 into manual testing.
 4. **Auth / session / OAuth / SAML** → `playbooks/auth-session.md`
 5. **Race conditions / TOCTOU** — scanners can't find these →
    `playbooks/race-conditions.md`
-6. Less-saturated: cache poisoning, mobile, CI/CD, mass assignment, file
-   upload, GraphQL abuse.
+6. **File upload / path traversal → RCE** — the most common bottom rung of RCE
+   chains → `playbooks/file-upload-rce.md`
+7. **XSS** — most-documented, most-crowded; win on escalation →
+   `playbooks/xss.md`
+8. **CSRF / CORS** — mostly gadgets; chain them to impact →
+   `playbooks/csrf.md`, `playbooks/cors.md`
+9. **Subdomain takeover** — recon-detectable, high-certainty →
+   `playbooks/subdomain-takeover.md`
+10. **SQLi** — rarer but high-value where it survives → `playbooks/sqli.md`
+11. Less-saturated: cache poisoning, mobile, CI/CD, mass assignment, GraphQL
+    abuse, HTTP request smuggling.
+
+**Whatever class you pick, read `docs/escalation-ladders.md` first** — the bug
+that pays is the chain to impact, not the primitive.
 
 ## Discipline
 

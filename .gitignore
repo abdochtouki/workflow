@@ -1,0 +1,26 @@
+# Never commit live hunting output, evidence, or secrets.
+# Ignore everything under any program's recon/ and evidence/ (keep the
+# placeholder so the empty folder is tracked).
+programs/*/recon/*
+!programs/*/recon/.gitkeep
+programs/*/evidence/*
+!programs/*/evidence/.gitkeep
+
+# Secrets — never. Credentials live in a vault, not in this repo.
+*.env
+.env
+*secret*
+*token*
+*.pem
+*.key
+cookies.txt
+*.creds
+
+# Large wordlists (pull them, don't commit them — see wordlists/README.md)
+wordlists/*.txt
+!wordlists/README.md
+
+# OS / editor noise
+.DS_Store
+*.swp
+*~

@@ -1,0 +1,10 @@
+# Scope for <program>. Keep in sync with the LIVE policy page. Never test from memory.
+# One rule per line. Format:
+#   example.com              exact host, in scope
+#   *.example.com            any subdomain, in scope
+#   !admin.example.com       explicit OUT of scope (deny-first, wins over allows)
+#   !*.internal.example.com  whole subtree out of scope
+# Comment out anything you have not verified as in scope.
+
+# example.com
+# *.example.com

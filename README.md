@@ -65,6 +65,7 @@ full recon — see `wordlists/README.md` and `docs/phases/3-recon.md`.
 | `templates/` | `finding.md`, `report.md` — the formats the scripts lint. |
 | `programs/_template/` | Copy this per program (`bin/new-program.sh`). |
 | `bin/` | `scope-gate` · `recon` · `verify` · `report-lint` · `new-program`. |
+| `skills/` | Claude Code skills that automate a phase. `js-analyze`: full JS recon (discover → analyze) into an MD report + curl commands. |
 | `wordlists/` | Starter wordlists + setup notes. |
 
 ## The non-negotiables

@@ -10,6 +10,20 @@ with a `SKILL.md` (the instructions Claude loads) plus any helper scripts.
 | `web-recon` | CTF web | Fingerprint the stack, hunt low-hanging files (robots/sitemap/`.git`), content discovery, comment scrape. Writes findings + `signals` to `app-map.json`. |
 | `source-review` | CTF web | Whitebox: read source/Dockerfile, trace source→sink, locate the intended bug and where the flag lives. |
 | `param-discovery` | CTF web | Hidden-parameter fuzzing with arjun (primary) / x8 (fallback). Surfaces params that feed IDOR, SSRF, LFI, redirect, auth-bypass. |
+| `ssti` | CTF web · exploit | Template injection → RCE. Detect → fingerprint engine → engine-specific payload → filter bypass → flag. Consumes `ssti-candidate`. |
+| `lfi-traversal` | CTF web · exploit | Local file inclusion / path traversal → file read, PHP wrapper / log-poisoning RCE. Consumes `file-param`. |
+| `sqli` | CTF web · exploit | SQL injection — error/UNION/boolean/time-blind, auth bypass, flag-table dump. Consumes `sqli-candidate`. |
+| `nosqli` | CTF web · exploit | NoSQL (MongoDB) operator injection — auth bypass, `$regex` extraction. |
+| `command-injection` | CTF web · exploit | OS command injection — in-band/blind detection, operator & filter bypass → `cat flag`. Consumes `cmdi-candidate`. |
+| `web-xss` | CTF web · exploit | Reflected/stored/DOM XSS with the admin-bot cookie/flag exfil pattern; CSP/filter bypass. Consumes `admin-bot-present`. |
+| `jwt-auth` | CTF web · exploit | JWT forgery — alg:none, RS256→HS256 confusion, weak-secret crack, kid/jku injection. Consumes `jwt-cookie`. |
+| `deserialization` | CTF web · exploit | Insecure deserialization (PHP/Python/Java/Ruby/.NET) — field tamper or gadget-chain RCE. |
+| `idor` | CTF web · exploit | Broken object-level authorization — id swap, two-account method, enumerate to the flag. Consumes `idor-candidate`. |
+| `ssrf` | CTF web · exploit | Server-side request forgery — internal services, cloud metadata, gopher; filter bypass. Consumes `ssrf-candidate`. |
+| `graphql` | CTF web · exploit | GraphQL — introspection, schema recovery, authz bypass, injection, batching. Consumes `graphql`. |
+| `xxe` | CTF web · exploit | XML external entity — file read, OOB exfil, SSRF (incl. SVG/DOCX uploads). |
+| `file-upload` | CTF web · exploit | Upload filter bypass → webshell/RCE, or chain to LFI/XSS/XXE. Consumes `upload-form`. |
+| `flag-hunter` | CTF web · finisher | Confirms the flag against `flag_format`, sweeps common locations, records the solve. |
 
 ## Using one
 
@@ -40,7 +54,10 @@ ctf-web-orchestrator        ← entry point; routes, never exploits
 ├─ source-review            ← whitebox: read code/Dockerfile → intended sink + flag location
 ├─ js-analyze               ← endpoints, params, secrets from JS bundles (also usable standalone)
 ├─ param-discovery          ← arjun/x8 hidden-parameter fuzzing
-└─ (exploit skills)         ← ssti, sqli, lfi-traversal, xss, jwt-auth, … then flag-hunter
+├─ exploit skills           ← ssti · lfi-traversal · sqli · nosqli · command-injection
+│                             web-xss · jwt-auth · deserialization · idor · ssrf
+│                             graphql · xxe · file-upload   (routed by signal)
+└─ flag-hunter              ← confirms the flag, records the solve
 ```
 
 **How they talk.** Every skill reads and writes `app-map.json`. Recon phases fill in
